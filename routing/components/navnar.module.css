@@ -1,0 +1,72 @@
+.nav{
+
+    width:
+    100%;
+    
+    padding:1.5rem
+    display:flex;
+    
+    align-items:
+    2rem;
+    
+    
+    center;
+    
+    justify-content:
+    flex-wrap: space-between;
+    
+    wrap;
+    
+    
+    border-bottom: 1px solid #2c2c2c;   
+
+}
+
+
+.links
+{
+
+flex:
+1;
+
+list-style:
+display:
+none;
+
+
+flex;
+
+justify-content:
+align-items:
+gap:
+end;
+
+center;
+
+2rem;
+
+}
+
+
+.links
+li
+{
+
+white-space:
+cursor:
+nowrap;
+
+pointer;
+
+}
+
+
+.linksli:hover,
+
+.linksli:active
+color:
+{
+
+#0099ff;
+
+}
