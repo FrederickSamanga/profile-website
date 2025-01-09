@@ -11,7 +11,7 @@ import Bubble from "@/components/Bubble";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-gray-900/2">
+    <main className="flex min-h-screen flex-col bg-gray-800/5">
     
       <Navbar />
       <div className="container mt-24 mx-auto px-12 py-4">

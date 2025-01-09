@@ -4,7 +4,7 @@ import { Github, Twitter, Linkedin, Facebook, MessageCircle, FileDown, ArrowUp }
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#333333] bg-[#121212]">
+    <footer className="border-t border-[#333333] bg-[#1c1c1c]]">
       <div className="container mx-auto px-12 py-8">
         <motion.div
           initial={{ opacity: 0 }}

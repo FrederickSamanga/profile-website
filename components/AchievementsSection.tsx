@@ -57,7 +57,7 @@ export default function AchievementsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2 }}
             viewport={{ once: true }}
-            className="bg-gray-800 p-6 rounded-lg border border-[#333333] text-center"
+            className="bg-[#1c1c1c] p-6 rounded-lg border border-[#333333] text-center"
           >
             <div className="flex justify-center text-whatsapp-green mb-4">
               {achievement.icon}

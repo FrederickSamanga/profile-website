@@ -101,9 +101,9 @@ function ParticleStream() {
       </bufferGeometry>
       <pointsMaterial
         size={0.03}
-        color="#1F2937" // Fainter, English color name
+        color="white" // Fainter, English color name
         transparent
-        opacity={0.5 } // Fainter particles
+        opacity={0.2} // Fainter particles
       />
     </points>
   );
