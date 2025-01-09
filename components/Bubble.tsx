@@ -2,9 +2,10 @@
 import { useEffect, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Sphere, MeshDistortMaterial } from "@react-three/drei";
+import * as THREE from "three";
 
 function AnimatedSphere() {
-  const meshRef = useRef();
+  const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
     if (meshRef.current) {
