@@ -5,48 +5,55 @@ import React, { useState } from "react";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({ email: "", subject: "", message: "" });
 
-  interface FormData {
-    email: string;
-    subject: string;
-    message: string;
-  }
-
-  interface FetchOptions {
-    method: string;
-    headers: {
-      "Content-Type": string;
-    };
-    body: string;
-  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data: FormData = {
-      email: e.currentTarget.email.value,
-      subject: e.currentTarget.subject.value,
-      message: e.currentTarget.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
 
-    const options: FetchOptions = {
+    // Basic validation
+    if (!formData.email.includes("@")) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+    if (formData.message.trim().length === 0) {
+      alert("Message cannot be empty.");
+      return;
+    }
+
+    const endpoint = "/api/send"; //API route
+
+    const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(formData),
     };
 
+    console.log("Sending request to:", endpoint);
+    console.log("Request options:", options);
+
+    setLoading(true);
     try {
-      const response = await fetch("/api/send", options);
+      const response = await fetch(endpoint, options);
       if (response.ok) {
+        console.log("Email sent successfully");
         setEmailSubmitted(true);
       } else {
         console.error("Failed to send email");
+        alert("Failed to send email. Please try again later.");
       }
     } catch (error) {
       console.error("Error:", error);
+      alert("An error occurred. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -73,7 +80,6 @@ const EmailSection = () => {
             Email sent successfully!
           </p>
         ) : (
-
           <motion.form
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,42 +93,51 @@ const EmailSection = () => {
                 id="email"
                 required
                 placeholder="Your email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full p-3 bg-[#1c1c1c] border border-[#333333] rounded-lg text-white focus:outline-none focus:border-whatsapp-green"
               />
             </div>
             <div>
               <input
-                  name="subject"
-                  type="text"
-                  id="subject"
-                  required
-                  placeholder="Subject"
-                  className="w-full p-3 bg-[#1c1c1c] border border-[#333333] rounded-lg text-white focus:outline-none focus:border-whatsapp-green"
-                />
-              </div>
+                name="subject"
+                type="text"
+                id="subject"
+                required
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full p-3 bg-[#1c1c1c] border border-[#333333] rounded-lg text-white focus:outline-none focus:border-whatsapp-green"
+              />
+            </div>
             <div>
               <textarea
                 name="message"
                 id="message"
                 placeholder="Your message"
                 rows={4}
+                value={formData.message}
+                onChange={handleChange}
                 className="w-full p-3 bg-[#1c1c1c] border border-[#333333] rounded-lg text-white focus:outline-none focus:border-whatsapp-green"
               />
             </div>
             <div className="flex flex-row items-center">
               <button
                 type="submit"
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white font-medium flex items-center justify-center gap-2 hover:opacity-70 transition-opacity"
+                disabled={loading}
+                className={`px-6 py-3 rounded-full ${
+                  loading
+                    ? "opacity-50 cursor-not-allowed"
+                    : "bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white"
+                } font-medium flex items-center justify-center gap-2 hover:opacity-70 transition-opacity`}
               >
-                Send Message
-                <Send size={20} />
+                {loading ? "Sending..." : "Send Message"}
+                {!loading && <Send size={20} />}
               </button>
             </div>
-            
           </motion.form>
         )}
-        </motion.div>
-    
+      </motion.div>
     </section>
   );
 };
