@@ -1,4 +1,5 @@
 "use client";
+const currentYear = new Date().getFullYear();
 import { motion } from "framer-motion";
 import { Github, Twitter, Linkedin, Facebook, MessageCircle, FileDown, ArrowUp } from "lucide-react";
 
@@ -13,7 +14,7 @@ export default function Footer() {
           className="flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-gray-400 mb-4 md:mb-0">
-            © 2024 J-Expression. All rights reserved.
+            © {currentYear} J-Expression. All rights reserved.
           </p>
           <div>
             <a 

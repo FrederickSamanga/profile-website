@@ -45,7 +45,7 @@ export default function Navbar() {
           <div>
             <a 
               href="https://wa.me/263719798269"
-              className="px-6 py-2 rounded-full bg-whatsapp-green font-bold flex items-center justify-center gap-2 hover:opacity-70 transition-opacity"
+              className="px-3 py-1 md:px-6 text-sm md:py-2 md:text-base rounded-full bg-whatsapp-green font-bold flex items-center justify-center gap-2 hover:opacity-70 transition-opacity"
             >
               WhatsApp Me
               <MessageCircle size={20} />
