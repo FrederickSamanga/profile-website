@@ -92,7 +92,7 @@ export default function HeroSection() {
         <div>
           <div className="w-120 h-120 bg-gray-800/25 py-5 rounded-full">
             <Image
-            src="/images/profile-image.png"
+            src="/images/profile-image.webp"
             alt="Profile Picture"
             width={300}
             height={300}
