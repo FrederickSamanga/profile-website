@@ -72,7 +72,7 @@ export default function HeroSection() {
                 <ArrowRight size={20} />
               </a>
               <a 
-                href="../../documents/Frederick Samanga Resume.pdf"
+                href="../../Frederick Samanga Resume.pdf"
                 className="px-6 py-3 rounded-full bg-gradient-to-r from-gray-800 via-gray-900 to-black font-medium flex items-center justify-center gap-2 hover:opacity-70 transition-opacity"
               >
                 Download CV
