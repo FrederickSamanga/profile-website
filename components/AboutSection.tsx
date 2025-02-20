@@ -9,7 +9,7 @@ const skills = [
   { name: "Spring Boot", icon: <Server size={24} /> },
   { name: "NextJS", icon: <GlobeIcon size={24} /> },
   { name: "WordPress", icon: <Globe size={24} /> },
-  { name: "Adobe Creative Skills", icon: <Palette size={24} /> }
+  { name: "Adobe Creative Suite", icon: <Palette size={24} /> }
 ];
 export default function AboutSection() {
   return (
