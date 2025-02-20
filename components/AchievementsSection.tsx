@@ -11,7 +11,7 @@ const achievements = [
     postfix: "+",
   },
   {
-    metric: "40",
+    metric: "13",
     title: "Projects Completed",
     icon: <Star className="w-6 h-6" />,
     postfix: "+",
@@ -29,7 +29,7 @@ const achievements = [
     postfix: "+",
   },
   {
-    metric: "50",
+    metric: "15",
     title: "Happy Clients",
     icon: <Users className="w-6 h-6" />,
     postfix: "+",
