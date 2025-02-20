@@ -8,6 +8,7 @@ const skills = [
   { name: "PostgreSQL", icon: <Database size={24} /> },
   { name: "Spring Boot", icon: <Server size={24} /> },
   { name: "NextJS", icon: <GlobeIcon size={24} /> },
+  { name: "n8n Automation", icon: <Workflow size={24} /> },
   { name: "WordPress", icon: <Globe size={24} /> },
   { name: "Adobe Creative Suite", icon: <Palette size={24} /> }
 ];
